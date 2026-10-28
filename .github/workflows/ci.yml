@@ -1,0 +1,37 @@
+name: CMS verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      sql:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: Y
+          MSSQL_SA_PASSWORD: CI-only-password-Aa123456789!
+        ports:
+          - 1433:1433
+        options: >-
+          --health-cmd="/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'CI-only-password-Aa123456789!' -C -Q 'SELECT 1'"
+          --health-interval=10s --health-timeout=5s --health-retries=12
+    env:
+      CMS_TEST_SQL_CONNECTION: Server=localhost,1433;User Id=sa;Password=CI-only-password-Aa123456789!;TrustServerCertificate=true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - run: dotnet restore CMS.slnx --locked-mode
+      - run: dotnet format CMS.slnx --verify-no-changes --no-restore
+      - run: dotnet build CMS.slnx -c Release --no-restore
+      - run: dotnet test CMS.slnx -c Release --no-build --no-restore --logger trx --results-directory artifacts/TestResults
+      - run: dotnet list CMS.slnx package --vulnerable --include-transitive --no-restore
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: artifacts/TestResults

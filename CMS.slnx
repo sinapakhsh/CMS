@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CMS.SharedKernel/CMS.SharedKernel.csproj" />
+    <Project Path="src/CMS.Api/CMS.Api.csproj" Id="7826c161-3f94-4768-96f1-148828496b70" />
+    <Project Path="src/CMS.Application/CMS.Application.csproj" Id="4931356d-d3e8-40bc-a7c4-dbc161d995d2" />
+    <Project Path="src/CMS.Domain/CMS.Domain.csproj" Id="a3ab41b9-55d3-493e-88fe-9f528aa9b83a" />
+    <Project Path="src/CMS.Infrastructure/CMS.Infrastructure.csproj" Id="3a984e28-f6e8-4a9f-8875-78ffbc021ef6" />
+    <Project Path="src/CMS.Migrator/CMS.Migrator.csproj" Id="419a666e-ce13-4133-8474-cd066d6f5798" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CMS.SharedKernel.UnitTests/CMS.SharedKernel.UnitTests.csproj" />
+    <Project Path="tests/CMS.Api.IntegrationTests/CMS.Api.IntegrationTests.csproj" Id="f83e242e-efa2-4118-a8f0-92292e05be4a" />
+    <Project Path="tests/CMS.Application.UnitTests/CMS.Application.UnitTests.csproj" Id="6822d749-c516-4b6c-8429-a66024e1a0cd" />
+    <Project Path="tests/CMS.ArchitectureTests/CMS.ArchitectureTests.csproj" Id="24337fd0-6d2d-4646-8029-c1486ea6a9df" />
+    <Project Path="tests/CMS.Domain.UnitTests/CMS.Domain.UnitTests.csproj" Id="95192689-5fa1-4d81-b907-ccb343e83bf8" />
+    <Project Path="tests/CMS.Infrastructure.IntegrationTests/CMS.Infrastructure.IntegrationTests.csproj" Id="6214c2a2-b9b0-461e-9dff-78ec1d1ec0bb" />
+  </Folder>
+</Solution>

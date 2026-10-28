@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../src/CMS.Api/CMS.Api.csproj" />
+    <ProjectReference Include="../../src/CMS.Application/CMS.Application.csproj" />
+    <ProjectReference Include="../../src/CMS.Domain/CMS.Domain.csproj" />
+    <ProjectReference Include="../../src/CMS.Infrastructure/CMS.Infrastructure.csproj" />
+    <ProjectReference Include="../../src/CMS.SharedKernel/CMS.SharedKernel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NetArchTest.Rules" />
+  </ItemGroup>
+</Project>
